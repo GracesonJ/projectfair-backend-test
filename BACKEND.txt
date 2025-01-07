@@ -1,0 +1,121 @@
+ NODE & EXPRESS
+-----------------
+
+MVC Archietecture
+-----------------
+-> MVC is basically used for create a fullstack project / Application
+    M -> Model - represent the structure in which the data is stored.
+    V -> View - user interface - where the user interact with application.
+    C -> Controller - use to set the logic to resolve the request.
+
+    Routing - To set the path to resolve the request. (To chanalize the request coming to the server side.)
+
+    DataBase - Where the data is stored.
+
+NODE
+----
+-> Not a programming Language
+-> It provides a environment to run the JavaScript outside the browser.
+-> V8 JavaScript Engine - Google
+-> JavaScript Libraries.
+-> Extention .js
+
+Instalation
+-----------
+Features-> single tread
+
+Node Modules
+------------
+
+-> Node modules are files / JavaScript Libearies than can be used in node.js applications to provide certain functionalities.
+-> If we want to include modeule, we need to import that molule.
+-> require() - used to import modules.
+-> module.export - to export the module.
+
+Type of Modules
+---------------
+1) Custome Modules.
+2) Builtin Modules.
+    1> File system modules
+    ----------------------
+    -> Allows to work with the files inside your system.
+    Operactions
+    ------------
+        1) read file - readFile()
+        2) write file - writeFile()
+        3) update - writeFile()
+        4) Delete file - unlink()
+        5) Rename file - rename()
+
+    utf8 - unicode transformation formate -8bit // encode
+
+    2> Http module
+    --------------
+    -> used to create http server that can listen to a server port and gives a response back to a client.
+    -> handles http request
+    -> create - createServer()
+    -> Listen - listen()
+
+    3> Https module - more secure transmission
+    4> Event Modules
+    ----------------
+    -> To create events
+    -> can create events with the help of EventEmmitter class
+    -> on() -  to create events
+    -> emit() - to invoke the event
+
+Environment Variables
+---------------------
+-> predefined values that are typically used to provide  the ablity to configure a value in your code from outside the application.
+
+EXPRESS
+--------
+-> Node.js framework
+    Steps to create / setup a server using EXPRESS
+        1) create a folder for server
+        2) create package.json - npm init -y
+        3) install  packages - Express, dotenv, cors, mongoose
+            Express - npm i express
+            dotenv - npm i dotenv 
+            cors - npm i cors
+            mongoose - npm i mongoose
+
+            npm i express dotenv cors mongoose
+        4) Add file .gitignore
+
+
+    cors - cross orgin resource sharing
+    -----------------------------------
+    -> to connect frontend with the server to enable communication
+
+    dotenv
+    -------
+    -> to load environment variables 
+    -> loads .env file contents into process.env by default
+    -> config()
+
+mongoose
+---------
+=> to connect server with DataBase
+=> connect()
+
+-------------------------------------------------------
+                    MiddleWare
+-------------------------------------------------------
+    -> its a function which have the ablity to break req-res cycle.
+    -> appart from another function middleware mush have three arguments.
+    1arg -> request
+    2arg -> response
+    3arg -> next
+
+    -> There are 2types of middleware
+        1> Application specific middleware
+            -> all the request in the application must pass through the middleware
+        2> router specific middleware
+            -> will be only active in a particular route / path
+
+            iat - time at which token is generated (issued at)
+
+            multer
+            ---------
+            > Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files

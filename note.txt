@@ -1,0 +1,91 @@
+        MongoDB
+-------------------------
+
+DataBase -  to store data
+---------
+    1> SQL - structured, query language
+    2> NoSQL - Not only sql
+
+    SQL
+    ----
+    => table formate - row and cols where rows represent records and cols represent attributes
+    => schema rigid
+    => data stored will be having a complex relation between each other. eg: financial system, enterprises system where the data intregrity in crucial factor.
+    SQL - oracle, mySQL, postgresql, microsoftsql etc...
+
+    NoSQL
+    -----
+    => no table formate
+    => schema flexible
+    => real time web application.
+    NoSQL - MongoDB, cassandra, redis etc...
+
+    MongoDB
+    -------
+    => one mongodb deployement can contains multiple DataBase.
+    => each DataBase contains multiple collections.
+    => each collections is a group of documents (equivalent to a table relational DataBase)
+    => each document is a basic unit of data with contains field( equivalent to a row(records) in relation database.)
+    => field is a key:value pair with the document.
+    => value can be any datatype eg: string, boolean, int, double etc....
+    => each document contains unique identifiers called objectId.
+
+    1> Local mongodb - mongodb compass
+    2> cloud mondodb - mondodb atlas
+
+    Compass
+    --------
+
+    operactions 
+    ------------
+    //GET
+    1) show databases -  to listout all the databeses in the connection.
+    2) use database - to change directory.
+    3) show collections - to list out all the collections inside database.
+    4) db.collection.find() - to get all the documents from the collection
+    5) db.collection.findOne({condition}) -  to get a particular document from the collection.
+    6) db.collections.find().limit(number) - to get a particular number of documents.
+    7) db.collection.find().sort({condition : 1}) -  to arrange the document in ascending order.
+    8) db.collection.find().sort({condition : -1}) -  to arrange the document in decending order.
+    //ADD
+    9) insert() - to add data to the collection.
+                -> insertOne() - add 1 data at a time
+                -> insertMany() - add more data at a time
+
+        Ouery Based Operactors - ($)
+        ----------------------
+        10) less than - ($lt)
+        11) less than or equal to - ($lte)
+        12) greater than - ($gt)
+        13) greater than or equal to - ($gte)
+        14) equal to - ($eq)
+        15) or - ($or)
+        16) and - ($and)
+        17) exists : true -> to find a particular document
+        18) $expr - compare using keys
+        //UPDATE
+        19) update()
+                1> updateOne(condition, updation) - to update one data at a time
+                2> updateMany(condition, updation) - to update more data at a time
+
+                $inc - positive -> increment
+                $inc - negative -> decrement
+                $push - to add new value to an array
+                $set - object ( to update object )
+        //DELETE
+        20) delete()
+                1> deleteOne(condition) - to remove 1data at a time.
+                2> deleteMany() - to remove more data at a time.
+        21) Aggregate operaction - to merge to collection
+                $lookup:
+                        {
+                        {
+                          from: <collection to join>,
+                          localField: <field from the input documents>,
+                          foreignField: <field from the documents of the "from" collection>,
+                          as: <output array field>
+                        }
+                        }
+--------------
+    Atlas
+--------------
