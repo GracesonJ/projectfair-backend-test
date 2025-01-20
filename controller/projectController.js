@@ -30,8 +30,18 @@ exports.addProjectController = async (req, res) => {
 // get all projects
 
 exports.getAllProjectController = async( req, res)=>{
+    //path parameter = req.params
+    //query parameter = req.query
+    const searchKey = req.query.search
+    console.log(searchKey);
+    const query = {
+        language: {
+            $regex: searchKey, $options :"i"
+        }
+    }
+    
     try {
-        const allProject = await projects.find()
+        const allProject = await projects.find(query)
         res.status(200).json(allProject)
     } catch (error) {
         res.status(401).json(error)
@@ -56,5 +66,44 @@ exports.getUserProjectController = async( req, res)=>{
         res.status(200).json(allProject)
     } catch (error) {
         res.status(401).json(error)
+    }
+}
+
+//remove userProject
+
+exports.removeUserProjectController = async(req, res)=>{
+    const {id} = req.params
+    try {
+        await projects.findByIdAndDelete({_id:id})
+        res.status(200).json(`Project Deleted Succesfully`)
+        
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}
+
+exports.editProjectController = async(req, res)=>{
+    const {id} = req.params
+    const userId = req.payload
+
+    const { title, language, github, website, overview, projectImage } = req.body
+    uploadedImage = req.file ? req.file.filename :projectImage
+
+    try {
+        const existingProject = await projects.findByIdAndUpdate({_id:id},{
+            title,
+            language,
+            github,
+            website,
+            overview,
+            projectImage: uploadedImage,
+            userId
+            
+        },{new:true})
+        await existingProject.save()
+        res.status(200).json(existingProject)
+
+    } catch (error) {
+        res.status().json(error)
     }
 }

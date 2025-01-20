@@ -119,3 +119,18 @@ mongoose
             multer
             ---------
             > Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files
+
+            express.static
+            --------------
+            -> export a particular folder from the server side.
+
+            Context Share
+            -------------
+            -> for data sharing between components.
+            -> part of react.
+            -> steps to use context Share
+                1> create a component.
+                2> wrap app inside  context component
+                3> create context in the component - createContext()
+                4> create data to share by  using this context
+                5> using provider tag and children props share the data with other components (pass value as object)

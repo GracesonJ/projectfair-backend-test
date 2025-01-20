@@ -26,6 +26,9 @@ pfserver.use(cors())
 // parse the data -> middleware to parse the data
 pfserver.use(express.json())
 
+// exporting upload folder
+pfserver.use('/upload', express.static('./uploads'))
+
 //use middleware
 // pfserver.use(appMiddleware)
 
